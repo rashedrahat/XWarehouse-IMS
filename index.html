@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="index.html">Company Name</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Checkout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Return</a>
+          </li> 
+        </ul>
+      </div>
+    </nav>
+    <br>
+
+    <div class="container">
+      <h3>Dashboard</h3>
+      <hr>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <input type="text" class="form-control" id="Name" placeholder="Product Name">
+          </div>
+          <div class="form-group col-md-2">
+            <input type="number" class="form-control" id="Quantity" placeholder="Quantity">
+          </div>
+          <div class="form-group col-md-2">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+                <span class="input-group-text">PUP</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="Status">Status</label>
+              </div>
+              <select class="custom-select" id="Status">
+                <option selected>Choose...</option>
+                <option value="InStock">In Stock</option>
+                <option value="NotInStock">Not In Stock</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Insert</button>
+      </form>
+      <hr>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search Products">
+        <button class="btn btn-secondary" type="submit">Search</button>
+      </form><br/>
+      <table class="table table-dark table-striped table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+             <th>PUP in $</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Shirt</td>
+            <td>100</td>
+            <td>111.50</td>
+            <td><span class="badge badge-pill badge-success">In Stock</span></td>
+            <td><button type="button" class="btn btn-sm btn-outline-success">Edit</button>
+            <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a>
+          </tr>
+          <tr>
+            <td>Pant</td>
+            <td>55</td>
+            <td>222</td>
+            <td><span class="badge badge-pill badge-success">In Stock</span></td>
+            <td><button type="button" class="btn btn-sm btn-outline-success">Edit</button>
+            <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a>
+          </tr>
+          <tr>
+            <td>T-Shirt</td>
+            <td>0</td>
+            <td>75</td>
+            <td><span class="badge badge-pill badge-danger">Not In Stock</span></td>
+            <td><button type="button" class="btn btn-sm btn-outline-success">Edit</button>
+            <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a>
+          </tr>
+        </tbody>
+      </table>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination pagination-sm justify-content-center">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+    </div>
+  </body>
+</html>
