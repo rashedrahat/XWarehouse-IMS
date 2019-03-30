@@ -27,7 +27,7 @@
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="checkout_form.html">Checkout Form</a>
-              <a class="dropdown-item" href="#">Products List</a>
+              <a class="dropdown-item" href="checkout_list.html">Checkout List</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -36,7 +36,7 @@
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Return Form</a>
-              <a class="dropdown-item" href="#">Products List</a>
+              <a class="dropdown-item" href="#">Return List</a>
             </div>
           </li>
         </ul>
@@ -45,8 +45,10 @@
     <br>
 
     <div class="container">
-      <h3>Dashboard</h3>
-      <hr>
+      <h2 align="center">Dashboard</h2><br>
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Insert a New Product</span>
+      </h4>
       <form>
         <div class="form-row">
           <div class="form-group col-md-4">
@@ -80,6 +82,9 @@
         <button type="submit" class="btn btn-primary">Insert</button>
       </form>
       <hr>
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Detailed List of Products</span>
+      </h4>
       <form class="form-inline">
         <input class="form-control mr-sm-2" type="text" placeholder="Search Products">
         <button class="btn btn-secondary" type="submit">Search</button>
@@ -101,7 +106,7 @@
             <td>111.50</td>
             <td><span class="badge badge-pill badge-success">In Stock</span></td>
             <td><button type="button" class="btn btn-sm btn-outline-success">Edit</button>
-            <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a>
+            <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a></td>
           </tr>
           <tr>
             <td>Pant</td>
@@ -109,7 +114,7 @@
             <td>222</td>
             <td><span class="badge badge-pill badge-success">In Stock</span></td>
             <td><button type="button" class="btn btn-sm btn-outline-success">Edit</button>
-            <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a>
+            <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a></td>
           </tr>
           <tr>
             <td>T-Shirt</td>
@@ -117,7 +122,7 @@
             <td>75</td>
             <td><span class="badge badge-pill badge-danger">Not In Stock</span></td>
             <td><button type="button" class="btn btn-sm btn-outline-success">Edit</button>
-            <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a>
+            <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a></td>
           </tr>
         </tbody>
       </table>
@@ -138,6 +143,14 @@
             </li>
           </ul>
         </nav>
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2019 X Warehouse</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
     </div>
   </body>
 </html>

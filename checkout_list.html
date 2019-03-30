@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Checkout List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="index.html">X Warehouse</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Dashboard</a>
+          </li>
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Checkout
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="checkout_form.html">Checkout Form</a>
+              <a class="dropdown-item" href="checkout_list.html">Checkout List</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Return
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Return Form</a>
+              <a class="dropdown-item" href="#">Return List</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br>
+
+    <div class="container">
+      <div>
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">List of Checkout</span>
+        </h4>
+        <table class="table table-dark table-striped table-hover">
+          <thead class="thead-light">
+            <tr>
+              <th>Name</th>
+              <th>Adress</th>
+              <th>Amount</th>
+              <th>Payment Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rashed</td>
+              <td>Nikunja-2</td>
+              <td>11150</td>
+              <td><span class="badge badge-pill badge-success">Received</span></td>
+              <td><button type="button" class="btn btn-sm btn-outline-success">Edit</button>
+              <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a></td>
+            </tr>
+            <tr>
+              <td>Shuvo</td>
+              <td>Mdpur</td>
+              <td>21150</td>
+              <td><span class="badge badge-pill badge-success">Received</span></td>
+              <td><button type="button" class="btn btn-sm btn-outline-success">Edit</button>
+              <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a></td>
+            </tr>
+            <tr>
+              <td>Jitu</td>
+              <td>Nikunja-2</td>
+              <td>1150</td>
+              <td><span class="badge badge-pill badge-danger">Due</span></td>
+              <td><button type="button" class="btn btn-sm btn-outline-success">Edit</button>
+              <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2019 X Warehouse</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>
