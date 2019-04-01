@@ -52,13 +52,13 @@
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-muted">Insert a New Product</span>
       </h4>
-      <form>
+      <form method="post">
         <div class="form-row">
           <div class="form-group col-md-4">
-            <input type="text" class="form-control" id="Name" placeholder="Product Name">
+            <input type="text" class="form-control" name= "pName" id="pName" placeholder="Product Name">
           </div>
           <div class="form-group col-md-2">
-            <input type="number" class="form-control" id="Quantity" placeholder="Quantity">
+            <input type="number" class="form-control" name="Quantity" id="Quantity" placeholder="Quantity">
           </div>
           <div class="form-group col-md-2">
             <div class="input-group mb-3">
@@ -66,7 +66,7 @@
                 <span class="input-group-text">$</span>
                 <span class="input-group-text">PUP</span>
               </div>
-              <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+              <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" name="price" id="price">
             </div>
           </div>
           <div class="form-group col-md-4">
@@ -74,15 +74,15 @@
               <div class="input-group-prepend">
                 <label class="input-group-text" for="Status">Status</label>
               </div>
-              <select class="custom-select" id="Status">
-                <option selected>Choose...</option>
-                <option value="InStock">In Stock</option>
-                <option value="NotInStock">Not In Stock</option>
+              <select class="custom-select" name="Status" id="Status">
+                <option value="In Stock">In Stock</option>
+                <option value="Not InStock">Not In Stock</option>
               </select>
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Insert</button>
+       <button type="button" class="btn btn-primary" id="insert">Insert</button>
+       <button type="button" class="btn btn-success" id="update">Update</button>
       </form>
       <hr>
       <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -103,32 +103,62 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Shirt</td>
-            <td>100</td>
-            <td>111.50</td>
-            <td><span class="badge badge-pill badge-success">In Stock</span></td>
-            <td><button type="button" class="btn btn-sm btn-outline-success">Edit</button>
-            <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a></td>
-          </tr>
-          <tr>
-            <td>Pant</td>
-            <td>55</td>
-            <td>222</td>
-            <td><span class="badge badge-pill badge-success">In Stock</span></td>
-            <td><button type="button" class="btn btn-sm btn-outline-success">Edit</button>
-            <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a></td>
-          </tr>
-          <tr>
-            <td>T-Shirt</td>
-            <td>0</td>
-            <td>75</td>
-            <td><span class="badge badge-pill badge-danger">Not In Stock</span></td>
-            <td><button type="button" class="btn btn-sm btn-outline-success">Edit</button>
-            <a class="btn btn-sm btn-outline-danger" href="#" role="button">Remove</a></td>
-          </tr>
+          
         </tbody>
       </table>
+      <!--
+        <div class="modal fade" id="myModel">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            
+              <div class="modal-header">
+                <h4 class="modal-title">Edit the Product Info</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              
+              <div class="modal-body">
+                <form method="post">
+                  <div>
+                    <div class="form-group col-md-6">
+                      <input type="text" class="form-control" name= "pName" id="pName" placeholder="Product Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="number" class="form-control" name="Quantity" id="Quantity" placeholder="Quantity">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">$</span>
+                          <span class="input-group-text">PUP</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" name="price" id="price">
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="Status">Status</label>
+                        </div>
+                        <select class="custom-select" name="Status" id="Status">
+                          <option selected>Choose...</option>
+                          <option value="In Stock">In Stock</option>
+                          <option value="Not InStock">Not In Stock</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="update">Update</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      -->
         <nav aria-label="Page navigation example">
           <ul class="pagination pagination-sm justify-content-center">
             <li class="page-item">
@@ -155,5 +185,56 @@
         </ul>
       </footer>
     </div>
+    <script>
+      $(function() {
+        $('#insert').click(function(){
+          var pName = $('input[name="pName"]').val();
+          var Quantity = $('input[name="Quantity"]').val();
+          var price = $('input[name="price"]').val();
+          var Status = $('select[name="Status"]').val();
+
+          var row_val = '<tr><td>'+pName+'</td> <td>'+Quantity+'</td> <td>'+price+'</td> <td>'+Status+'</td> <td><button type="button" class="btn btn-sm btn-outline-success btn-edit">Edit</button>&emsp;<button type="button" class="btn btn-sm btn-outline-danger btn-delete">Delete</button></td></tr>';
+
+          $('tbody').append(row_val);
+        });
+
+        var row_val_edit = null;
+        $(document).on('click', '.btn-edit', function(){
+          row_val_edit = $(this).closest('row_val');
+          var pName = $(row_val_edit).find('td:eq(0)').text();
+          var Quantity = $(row_val_edit).find('td:eq(1)').text();
+          var price = $(row_val_edit).find('td:eq(2)').text();
+          var Status = $(row_val_edit).find('td:eq(3)').text();
+
+          $('input[name="pName"]').val(pName);
+          $('input[name="Quantity"]').val(Quantity);
+          $('input[name="price"]').val(price);
+          $('select[name="Status"]').val(Status);
+        });
+
+        $('#update').click(function(){
+          if (row_val_edit) {
+              var pName = $('input[name="pName"]').val();
+              var Quantity = $('input[name="Quantity"]').val();
+              var price = $('input[name="price"]').val();
+              var Status = $('select[name="Status"]').val();
+
+              $(row_val_edit).find('td:eq(0)').text(pName);
+              $(row_val_edit).find('td:eq(1)').text(Quantity);
+              $(row_val_edit).find('td:eq(2)').text(price);
+              $(row_val_edit).find('td:eq(3)').text(Status);
+              alert("Product details updated!");
+              row_val_edit = null;
+          }
+        });
+
+        $(document).on('click', '.btn-delete', function(){
+          if (confirm("Are you sure to delete?")) {
+            $(this).closest('row_val').remove();
+          }
+        });
+
+      });
+    </script>
   </body>
 </html>
