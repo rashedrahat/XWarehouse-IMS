@@ -51,15 +51,15 @@
       <h2 align="center">Checkout Form</h2>
       <div>
         <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-muted">Add to Cart</span>
+          <span class="text-muted">Add or Update into Cart</span>
         </h4>
-        <form>
+        <form autocomplete="off" onsubmit="event.preventDefault();onFormSubmit();">
           <div class="form-row">
             <div class="form-group col-md-4">
-              <input type="text" class="form-control" id="Name" placeholder="Product Name">
+              <input type="text" class="form-control" name="pName" id="pName" placeholder="Product Name" required>
             </div>
             <div class="form-group col-md-2">
-              <input type="number" class="form-control" id="Quantity" placeholder="Quantity">
+              <input type="number" class="form-control" name="Quantity" id="Quantity" placeholder="Quantity" required>
             </div>
             <div class="form-group col-md-2">
               <div class="input-group mb-3">
@@ -67,91 +67,72 @@
                   <span class="input-group-text">$</span>
                   <span class="input-group-text">PUP</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" required placeholder="0.00" name="price" id="price">
               </div>
             </div>
             <div class="form-group col-md-4">
-              <button type="submit" class="btn btn-primary">Add</button>
+              <input type="submit" value="Submit" class="btn btn-info">
             </div>
           </div>
         </form>
-        <h6 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-muted">Your Cart</span>
-        </h6>
-        <table class="table table-dark table-striped table-hover">
-          <caption>List of products</caption>
-          <thead class="thead-light">
-            <tr>
-              <th>Product Name</th>
-              <th>Quantity</th>
-               <th>PUP in $</th>
-              <th>Cost in $</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Shirt</td>
-              <td>100</td>
-              <td>111.50</td>
-              <td>11100.50</td>
-            </tr>
-            <tr>
-              <td>Pant</td>
-              <td>55</td>
-              <td>222</td>
-              <td>12210</td>
-            </tr>
-            <tr>
-              <td>T-Shirt</td>
-              <td>75</td>
-              <td>75</td>
-              <td>5625</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="row">
-          <div class="col-md-4 order-md-2 mb-4">
-            <ul class="list-group mb-3">
-              <li class="list-group-item d-flex justify-content-between">
-                <span>Total Cost (USD)</span>
-                <strong>$23310.50</strong>
-              </li>
-              <li class="list-group-item d-flex justify-content-between">
-                <div class="text-success">
-                  <h6 class="my-0">Discount</h6>
-                </div>
-                <span class="text-success">$310.50</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between bg-light">
-                <div class="text-info">
-                  <span>Final Total Cost (USD)</span>
-                </div>
-                <strong class="text-info">$23000</strong>
-              </li>
-            </ul>
+        <div id="this" style="display: none;">
+          <h6 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Your Cart&emsp;<span class="badge badge-secondary badge-pill" id="numOfP"></span></span>
+          </h6>
+          <table class="table table-dark table-striped table-hover" id="ProductList">
+              <caption>List of products</caption>
+              <thead class="thead-light">
+                <tr>
+                  <th>Product Name</th>
+                  <th>Quantity</th>
+                  <th>PUP in $</th>
+                  <th>Cost in $</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="here">
+                
+              </tbody>
+            </table>
+            <div class="card" style="width: 20rem;">
+              <div class="card-header text-muted" align="center">
+                Checkout Cost
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                  <span class="text-danger">Total Cost (USD)</span>
+                  <strong class="text-danger"><span>$</span><span id="val"></span></strong>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <div class="text-success">
+                      <h6 class="my-0">Discount</h6>
+                  </div>
+                  <span class="text-success"><span>$</span><span id="val2"></span></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <div class="text-info">
+                    <span>Final Total Cost (USD)</span>
+                  </div>
+                  <strong class="text-info"><span>$</span><span id="val3"></span></strong>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
       <hr>
       <div>
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-muted">Billing Address</span>
         </h4>
-        <form class="needs-validation" validate>
+        <form validate>
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="Name">Name (Individual/Organization)</label>
-              <input type="text" class="form-control" id="Name" placeholder="Name" value="" required>
-              <div class="invalid-feedback">
-                Valid name is required.
-              </div>
+              <input type="text" class="form-control" id="Name" placeholder="Name" required>
             </div>
             <div class="col-md-6 mb-3">
               <label for="address">Address</label>
               <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-              <div class="invalid-feedback">
-                Please enter your shipping address.
-              </div>
             </div>
           </div>
           <hr>
@@ -170,7 +151,7 @@
             </div>
           </div>
           <hr>
-          <button class="btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+          <button class="btn btn-primary btn-lg" type="submit" onclick="redirect()">Continue to checkout</button>
         </form>
       </div>
       <footer class="my-5 pt-5 text-muted text-center text-small">
@@ -182,5 +163,11 @@
         </ul>
       </footer>
     </div>
+    <script src="checkout_form.js"></script>
+    <script>
+      function redirect() {
+      window.location.href = "checkout_list.html";
+    }
+    </script>
   </body>
 </html>

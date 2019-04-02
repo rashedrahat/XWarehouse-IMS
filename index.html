@@ -28,7 +28,7 @@
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
         </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="submit" class="btn btn-primary" onclick="redirect()">Sign in</button>
       </form><br>
       <div class="card-header bg-light">
         <small>Don't have an account?</small> <a href="signup.html" style="text-decoration: none;">Sign Up</a>
@@ -62,6 +62,10 @@
         });
       }, false);
     })();
+
+    function redirect() {
+      window.location.href = "dashboard.html";
+    }
     </script>
 
   </body>

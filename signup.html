@@ -41,7 +41,7 @@
             <div class="invalid-feedback">Check this checkbox to continue.</div>
           </label>
         </div>
-        <button type="submit" class="btn btn-success">Sign Up</button>
+        <button type="submit" class="btn btn-success" onclick="redirect()">Sign Up</button>
       </form><br>
       <div class="card-header bg-light">
         <small>Already have an account?</small> <a href="index.html" style="text-decoration: none;">Sign In</a>
@@ -75,6 +75,10 @@
         });
       }, false);
     })();
+
+    function redirect() {
+      window.location.href = "index.html";
+    }
     </script>
 
   </body>
