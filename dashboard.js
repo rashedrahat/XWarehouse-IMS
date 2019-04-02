@@ -1,6 +1,12 @@
+var row = null;
+
 function onFormSubmit() {
 	var formData = readFormData();
-	insertNewRecord(formData);
+	if (row == null)
+		insertNewRecord(formData);
+		else
+			updateRecord(formData);
+	resetForm();
 }
 
 function readFormData() {
@@ -24,7 +30,38 @@ function insertNewRecord(data) {
 	cell4 = newRow.insertCell(3);
 	cell4.innerHTML = data.Status;
 	cell4 = newRow.insertCell(4);
-	cell4.innerHTML = `<a class="btn btn-sm btn-outline-success" role="button">Edit</a>
-					   <a class="btn btn-sm btn-outline-danger" role="button">Remove</a>`;
-
+	cell4.innerHTML = `<a class="btn btn-sm btn-outline-success" role="button" onclick="onEdit(this)" data-toggle="modal" data-target="#myModal">Edit</a>
+					   <a class="btn btn-sm btn-outline-danger" role="button" onclick="onDelete(this)">Remove</a>`;
 }
+
+function resetForm() {
+	document.getElementById("pName").value = "";
+	document.getElementById("Quantity").value = "";
+	document.getElementById("price").value = "";
+	document.getElementById("Status").value = "Choose...";
+	row = null;
+}
+
+function onEdit(td) {
+	row = td.parentElement.parentElement;
+	document.getElementById("pName").value = row.cells[0].innerHTML;
+	document.getElementById("Quantity").value = row.cells[1].innerHTML;
+	document.getElementById("price").value = row.cells[2].innerHTML;
+	document.getElementById("Status").value = row.cells[3].innerHTML;
+}
+
+function updateRecord(formData) {
+	row.cells[0].innerHTML = formData.pName;
+	row.cells[1].innerHTML = formData.Quantity;
+	row.cells[2].innerHTML = formData.price
+	row.cells[3].innerHTML = formData.Status;
+}
+
+function onDelete(td) {
+	if (confirm("Are you sure to delete?")) {
+		row = td.parentElement.parentElement;
+	    document.getElementById("ProductList").deleteRow(row.rowIndex);
+	    resetForm();
+	}
+}
+
