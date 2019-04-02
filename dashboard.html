@@ -52,7 +52,7 @@
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-muted">Insert a New Product</span>
       </h4>
-      <form method="post">
+      <form autocomplete="off" onsubmit="event.preventDefault();onFormSubmit();">
         <div class="form-row">
           <div class="form-group col-md-4">
             <input type="text" class="form-control" name= "pName" id="pName" placeholder="Product Name">
@@ -75,14 +75,14 @@
                 <label class="input-group-text" for="Status">Status</label>
               </div>
               <select class="custom-select" name="Status" id="Status">
+                <option selected>Choose...</option>
                 <option value="In Stock">In Stock</option>
                 <option value="Not InStock">Not In Stock</option>
               </select>
             </div>
           </div>
         </div>
-       <button type="button" class="btn btn-primary" id="insert">Insert</button>
-       <button type="button" class="btn btn-success" id="update">Update</button>
+        <input type="submit" value="Insert" class="btn btn-primary">
       </form>
       <hr>
       <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -92,7 +92,7 @@
         <input class="form-control mr-sm-2" type="text" placeholder="Search Products">
         <button class="btn btn-secondary" type="submit">Search</button>
       </form><br/>
-      <table class="table table-dark table-striped table-hover">
+      <table class="table table-dark table-striped table-hover" id="ProductList">
         <thead class="thead-light">
           <tr>
             <th>Product Name</th>
@@ -185,56 +185,7 @@
         </ul>
       </footer>
     </div>
-    <script>
-      $(function() {
-        $('#insert').click(function(){
-          var pName = $('input[name="pName"]').val();
-          var Quantity = $('input[name="Quantity"]').val();
-          var price = $('input[name="price"]').val();
-          var Status = $('select[name="Status"]').val();
-
-          var row_val = '<tr><td>'+pName+'</td> <td>'+Quantity+'</td> <td>'+price+'</td> <td>'+Status+'</td> <td><button type="button" class="btn btn-sm btn-outline-success btn-edit">Edit</button>&emsp;<button type="button" class="btn btn-sm btn-outline-danger btn-delete">Delete</button></td></tr>';
-
-          $('tbody').append(row_val);
-        });
-
-        var row_val_edit = null;
-        $(document).on('click', '.btn-edit', function(){
-          row_val_edit = $(this).closest('row_val');
-          var pName = $(row_val_edit).find('td:eq(0)').text();
-          var Quantity = $(row_val_edit).find('td:eq(1)').text();
-          var price = $(row_val_edit).find('td:eq(2)').text();
-          var Status = $(row_val_edit).find('td:eq(3)').text();
-
-          $('input[name="pName"]').val(pName);
-          $('input[name="Quantity"]').val(Quantity);
-          $('input[name="price"]').val(price);
-          $('select[name="Status"]').val(Status);
-        });
-
-        $('#update').click(function(){
-          if (row_val_edit) {
-              var pName = $('input[name="pName"]').val();
-              var Quantity = $('input[name="Quantity"]').val();
-              var price = $('input[name="price"]').val();
-              var Status = $('select[name="Status"]').val();
-
-              $(row_val_edit).find('td:eq(0)').text(pName);
-              $(row_val_edit).find('td:eq(1)').text(Quantity);
-              $(row_val_edit).find('td:eq(2)').text(price);
-              $(row_val_edit).find('td:eq(3)').text(Status);
-              alert("Product details updated!");
-              row_val_edit = null;
-          }
-        });
-
-        $(document).on('click', '.btn-delete', function(){
-          if (confirm("Are you sure to delete?")) {
-            $(this).closest('row_val').remove();
-          }
-        });
-
-      });
+    <script src="dashboard.js">
     </script>
   </body>
 </html>
