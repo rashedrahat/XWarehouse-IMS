@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Return Form</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link href="../CSS/dashboard.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="header"></div>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <h1 class="h2">Return Form</h1>
+      <hr />
+      <div class="container">
+        <div>
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Product Description</span>
+          </h4>
+          <form validate>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Name"
+                  placeholder="Product Name"
+                  required
+                  autofocus="autofocus"
+                />
+              </div>
+              <div class="form-group col-md-2">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="Quantity"
+                  placeholder="Quantity"
+                  required
+                />
+              </div>
+              <div class="form-group col-md-3">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Damage</span>
+                  </div>
+                  <input type="number" class="form-control" required />
+                </div>
+              </div>
+            </div>
+            <hr />
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted">Billing Address</span>
+            </h4>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="Name">Name (Individual/Organization)</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Name"
+                  placeholder="Name"
+                  value=""
+                  required
+                />
+                <div class="invalid-feedback">
+                  Valid name is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="address">Address</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address"
+                  placeholder="1234 Main St"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please enter your shipping address.
+                </div>
+              </div>
+            </div>
+            <hr />
+            <button
+              class="btn btn-primary btn-lg"
+              type="submit"
+              onclick="redirect()"
+            >
+              Continue to return
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script>
+      $(function() {
+        $("#header").load("header.html");
+      });
+
+      function redirect() {
+        window.location.href = "return_list.html";
+      }
+    </script>
+  </body>
+</html>
