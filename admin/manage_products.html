@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Manage Products</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link href="../CSS/dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="header"></div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div>
+            <h1 class="h2">Edit a Product</h1>
+            <hr />
+            <div class="container">
+                    <form autocomplete="off">
+                      <div class="form-row">
+                        <div class="form-group col-md-4">
+                          <input type="text" class="form-control" name= "pName" id="pName" placeholder="Product Name" required>
+                        </div>
+                        <div class="form-group col-md-2">
+                          <input type="number" class="form-control" name="Quantity" id="Quantity" placeholder="Quantity" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                          <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="Cat">Category</label>
+                            </div>
+                            <select class="custom-select" name="Category" id="Category" required>
+                              <option selected>Choose...</option>
+                              <option value="Food">Food</option>
+                              <option value="Electronics">Electronics</option>
+                              <option value="Clothes">Clothes</option>
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                            <div class="form-group col-md-3">
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                        <span class="input-group-text">Buying PUP</span>
+                                      </div>
+                                      <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" name="price" id="price" required placeholder="0.00">
+                                    </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                        <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                            <span class="input-group-text">Selling PUP</span>
+                                          </div>
+                                          <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" name="price" id="price" required placeholder="0.00">
+                                        </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                    <input type="file" class="form-control-file" id="img" required>
+                                  </div>
+                        </div>
+                        <div class="form-row">
+                                <div class="form-group col-md-10">
+                                        <textarea class="form-control" id="details" placeholder="Write more details about product." rows="3"></textarea>
+                                      </div>
+                            </div>
+                            
+                        <input type="submit" value="Save Changes" class="btn btn-success">
+                      </div>
+                    </form>
+                    <hr/>
+                    <div>
+                            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="text-muted">Detailed List of Products</span>
+                                  </h4>
+                                  <form class="form-inline">
+                                    <input class="form-control mr-sm-2" type="text" placeholder="Search Products">
+                                    <button class="btn btn-secondary" type="submit">Search</button>
+                                  </form><br/>
+                                  <div>
+                                    <table class="table table-dark table-striped table-hover">
+                                    <thead class="thead-light">
+                                      <tr>
+                                        <th>Product Name</th>
+                                        <th>Quantity</th>
+                                        <th>Category</th>
+                                        <th>Buying PUP</th>
+                                        <th>Selling PUP</th>
+                                        <th>Image</th>
+                                        <th>Details</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                            <td>Mobile</td>
+                                            <td>25</td>
+                                            <td>Electronics</td>
+                                            <td>1000</td>
+                                            <td>1111</td>
+                                            <td><img src="#" alt="img"></td>
+                                            <td>iPhone X</td>
+                                            <td>
+                                              <span class="badge badge-pill badge-success">In Stock</span>
+                                            </td>
+                                            <td>
+                                                  <a class="btn btn-sm btn-outline-success" role="button">Edit</a>
+                                                  <a class="btn btn-sm btn-outline-danger" role="button">Remove</a>
+                                            </td>
+                                      </tr>
+                                      <tr>
+                                            <td>Banana</td>
+                                            <td>0</td>
+                                            <td>Food</td>
+                                            <td>10</td>
+                                            <td>11</td>
+                                            <td><img src="#" alt="img"></td>
+                                            <td>N/A</td>
+                                            <td>
+                                              <span class="badge badge-pill badge-danger">Not In Stock</span>
+                                            </td>
+                                            <td>
+                                                  <a class="btn btn-sm btn-outline-success" role="button">Edit</a>
+                                                  <a class="btn btn-sm btn-outline-danger" role="button">Remove</a>
+                                            </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                    <nav aria-label="Page navigation example">
+                                      <ul class="pagination pagination-sm justify-content-center">
+                                        <li class="page-item">
+                                          <a class="page-link" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                          </a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                          <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                          </a>
+                                        </li>
+                                      </ul>
+                                    </nav>
+                                  </div>
+                    </div>
+            
+          </div>
+        </main>
+      </div>
+    </div>
+    <script> 
+        $(function(){
+          $("#header").load("header.html"); 
+        });
+    </script>
+  </body>
+</html>

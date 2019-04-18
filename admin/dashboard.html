@@ -43,91 +43,10 @@
         }
       }
     </style>
+    <link href="../CSS/dashboard.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="dashboard.html"
-        >X Warehouse</a
-      >
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="index.html">Sign out</a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="container-fluid" style="padding-top: 50px;">
-      <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link active" href="dashboard.html">
-                  <i class="fa fa-dashboard"></i>
-                  Dashboard
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <i class="fa fa-diamond"></i>
-                  Products
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbardrop"
-                  data-toggle="dropdown"
-                >
-                  <i class="fa fa-check"></i>
-                  Checkout
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="checkout_form.html"
-                    >Checkout Form</a
-                  >
-                  <a class="dropdown-item" href="checkout_list.html"
-                    >Checkout List</a
-                  >
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbardrop"
-                  data-toggle="dropdown"
-                  ><i class="fa fa-arrow-left"></i>
-                  Return
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="return_form.html"
-                    >Return Form</a
-                  >
-                  <a class="dropdown-item" href="return_list.html"
-                    >Return List</a
-                  >
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbardrop"
-                  data-toggle="dropdown"
-                  ><i class="fa fa-users"></i>
-                  Employees
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Create One</a>
-                  <a class="dropdown-item" href="#">Exist Employees</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
+    <div id="header"></div>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div>
             <h1 class="h2">Dashboard</h1>
@@ -160,7 +79,7 @@
               <div class="w3-third">
                 <div class="w3-container w3-blue w3-padding-16">
                   <div class="w3-left">
-                    <i class="fa fa-shopping-bag w3-xxxlarge"></i>
+                    <i class="fa fa-dropbox w3-xxxlarge"></i>
                   </div>
                   <div class="w3-right">
                     <h3>457894</h3>
@@ -210,13 +129,10 @@
         </main>
       </div>
     </div>
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">&copy; 2019 X Warehouse</p>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Privacy</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Support</a></li>
-      </ul>
-    </footer>
+    <script> 
+        $(function(){
+          $("#header").load("header.html"); 
+        });
+    </script>
   </body>
 </html>
