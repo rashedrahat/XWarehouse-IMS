@@ -103,9 +103,8 @@
                                       </div>
                             </div>
                             
-                        <input type="submit" value="Save" class="btn btn-success">
-                                 
-                        <input type="submit" value="Save and add another" class="btn btn-info">
+                        <input type="submit" value="Save" class="btn btn-success" onclick="redirect(1)">
+                        <input type="submit" value="Save and add another" class="btn btn-info" onclick="redirect(2)">
                       </div>
                     </form>
             
@@ -115,8 +114,15 @@
     </div>
     <script> 
         $(function(){
-          $("#header").load("header.html"); 
+          $("#header").load("header.html");
         });
+        function redirect(choice) {
+          if (choice == 1) {
+            window.location.href = "manage_products.html";
+          } else {
+            window.location.href = "add_product.html";
+          }
+      }
     </script>
   </body>
 </html>
