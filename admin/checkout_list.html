@@ -64,19 +64,19 @@
                   
                   <!-- Modal body -->
                   <div class="modal-body">
-                      <h4 class="d-flex justify-content-between align-items-center mb-3">
-                          <span class="text-muted">Billing Address</span>
-                        </h4>
                         <form validate>
+                            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-muted">Billing Adress</span>
+                              </h4>
                           <div class="row">
                             <div class="col-md-6 mb-3">
                               <label for="Name">Name (Individual/Organization)</label>
                               <input
                                 type="text"
                                 class="form-control"
-                                id="Name"
+                                id="name"
                                 placeholder="Name"
-                                required
+                                value="Rashed" readonly
                               />
                             </div>
                             <div class="col-md-6 mb-3">
@@ -86,45 +86,65 @@
                                 class="form-control"
                                 id="address"
                                 placeholder="1234 Main St"
-                                required
+                                value="Nikjunja-2" readonly
                               />
                             </div>
                           </div>
                           <h4 class="d-flex justify-content-between align-items-center mb-3">
                             <span class="text-muted">Payment</span>
                           </h4>
-              
-                          <div class="d-block my-3">
-                            <div class="custom-control custom-radio">
-                              <input
-                                id="Received"
-                                name="payment"
-                                type="radio"
-                                class="custom-control-input"
-                                required
-                              />
-                              <label class="custom-control-label" for="Received"
-                                >Received</label
-                              >
+                          <div class="row">
+                              <div class="col-md-6 mb-3">
+                                  <label for="payMethod">Pay Method</label
+                                    >
+                                        <select class="custom-select" id="payMethod" required>
+                                          <option>Choose...</option>
+                                          <option value="1" selected>Paid</option>
+                                          <option value="2">Partial</option>
+                                          <option value="3">Unpaid</option>
+                                        </select>
+                              </div>
+                              <div class="col-md-6 mb-3">
+                                <label for="totalAmount">Amount</label>
+                                    <input
+                                    type="text"
+                                    readonly
+                                    class="form-control"
+                                    id="totalAmount"
+                                    value="11150"
+                                  />
+                              </div>
                             </div>
-                            <div class="custom-control custom-radio">
-                              <input
-                                id="Due"
-                                name="payment"
-                                type="radio"
-                                class="custom-control-input"
-                                required
-                              />
-                              <label class="custom-control-label" for="Due">Due</label>
-                            </div>
-                          </div>
-                          <hr />
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="paidAmount">Paid</label>
+                                        <input
+                                        type="text"
+                                        required
+                                        class="form-control"
+                                        id="paidAmount"
+                                        value="11150"
+                                      />
+                                  </div>
+                                <div class="col-md-6 mb-3">
+                                  <label for="dueAmount">Due</label>
+                                      <input
+                                      type="text"
+                                      required
+                                      class="form-control"
+                                      id="dueAmount"
+                                      value="0"
+                                    />
+                                </div>
+                              </div>
+                            <hr />
                           <button
                             class="btn btn-primary btn-md"
                             type="submit"
                           >
                             Save changes
                           </button>
+                          </div>
                         </form>
                   </div>
                 </div>
@@ -135,20 +155,26 @@
           <table class="table table-dark table-striped table-hover">
             <thead class="thead-light">
               <tr>
+                <th scope="col">Checkout Id</th>
                 <th>Name</th>
                 <th>Address</th>
                 <th>Amount</th>
+                <th>Paid</th>
+                <th>Due</th>
                 <th>Payment Status</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <tr>
+                <th scope="row">1</th>
                 <td>Rashed</td>
                 <td>Nikunja-2</td>
                 <td>11150</td>
+                <td>11150</td>
+                <td>0</td>
                 <td>
-                  <span class="badge badge-pill badge-success">Received</span>
+                  <span class="badge badge-pill badge-success">Paid</span>
                 </td>
                 <td>
                   <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#myModal">
@@ -163,11 +189,14 @@
                 </td>
               </tr>
               <tr>
+                <th scope="row">2</th>
                 <td>Shuvo</td>
                 <td>Mdpur</td>
                 <td>21150</td>
+                <td>20000</td>
+                <td>1150</td>
                 <td>
-                  <span class="badge badge-pill badge-success">Received</span>
+                  <span class="badge badge-pill badge-warning">Partial</span>
                 </td>
                 <td>
                   <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#myModal">
@@ -182,8 +211,11 @@
                 </td>
               </tr>
               <tr>
+                <th scope="row">3</th>
                 <td>Jitu</td>
                 <td>Nikunja-2</td>
+                <td>1150</td>
+                <td>0</td>
                 <td>1150</td>
                 <td><span class="badge badge-pill badge-danger">Due</span></td>
                 <td>
@@ -199,11 +231,14 @@
                 </td>
               </tr>
               <tr>
+                <th scope="row">4</th>
                 <td>Abc Company</td>
                 <td>Motijhil</td>
                 <td>112150</td>
+                <td>112150</td>
+                <td>0</td>
                 <td>
-                  <span class="badge badge-pill badge-success">Received</span>
+                  <span class="badge badge-pill badge-success">Paid</span>
                 </td>
                 <td>
                   <button type="button" class="btn btn-sm btn-outline-success">
