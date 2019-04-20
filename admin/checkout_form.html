@@ -50,33 +50,38 @@
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <h1 class="h2">Checkout Form</h1>
       <hr />
-      <div class="container">
-        <div>
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Add or Update into Cart</span>
-          </h4>
-          <form
-            autocomplete="off"
-            onsubmit="event.preventDefault();onFormSubmit();"
-          >
+      <div class="card">
+        <div class="card-header">
+          Generate Invoice
+        </div>
+        <div class="card-body">
+          <form>
             <div class="form-row">
-              <div class="form-group col-md-4">
-                <input
-                  type="text"
-                  class="form-control"
-                  name="pName"
-                  id="pName"
-                  placeholder="Product Name"
-                  required
-                  autofocus="autofocus"
-                />
+              <div class="form-group col-md-3">
+                <div class="input-group mb-3">
+                  <select class="custom-select" id="productName" required>
+                    <option selected>Choose Product...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group col-md-1">
+                <span class="text-muted"
+                  >Available&emsp;<span
+                    class="badge badge-secondary badge-pill"
+                    id="available"
+                    >_</span
+                  ></span
+                >
               </div>
               <div class="form-group col-md-2">
                 <input
                   type="number"
                   class="form-control"
-                  name="Quantity"
-                  id="Quantity"
+                  name="quantity"
+                  id="quantity"
                   placeholder="Quantity"
                   required
                 />
@@ -95,85 +100,47 @@
                     placeholder="0.00"
                     name="price"
                     id="price"
+                    readonly
                   />
                 </div>
               </div>
-              <div class="form-group col-md-4">
-                <input type="submit" value="Submit" class="btn btn-info" />
+              <div class="form-group col-md-1">
+                <span class="text-muted"
+                  >Total Price&emsp;<span
+                    class="badge badge-info badge-pill"
+                    id="totalPrice"
+                    >_</span
+                  ></span
+                >
+              </div>
+              <div class="form-group col-md-2">
+                <input
+                  type="number"
+                  class="form-control"
+                  name="percentage"
+                  id="percentage"
+                  placeholder="Percentage"
+                  required
+                />
+              </div>
+              <div class="form-group col-md-1">
+                <span class="text-muted"
+                  >Net Price&emsp;<span
+                    class="badge badge-success badge-pill"
+                    id="netPrice"
+                    >_</span
+                  ></span
+                >
               </div>
             </div>
-          </form>
-          <div id="this" style="display: none;">
-            <h6 class="d-flex justify-content-between align-items-center mb-3">
-              <span class="text-muted"
-                >Your Cart&emsp;<span
-                  class="badge badge-secondary badge-pill"
-                  id="numOfP"
-                ></span
-              ></span>
-            </h6>
-            <table
-              class="table table-dark table-striped table-hover"
-              id="ProductList"
-            >
-              <caption>
-                List of products
-              </caption>
-              <thead class="thead-light">
-                <tr>
-                  <th>Product Name</th>
-                  <th>Quantity</th>
-                  <th>PUP in $</th>
-                  <th>Cost in $</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody id="here"></tbody>
-            </table>
-            <div class="card" style="width: 20rem;">
-              <div class="card-header text-muted" align="center">
-                Checkout Cost
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between">
-                  <span class="text-danger">Total Cost (USD)</span>
-                  <strong class="text-danger"
-                    ><span>$</span><span id="val"></span
-                  ></strong>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <div class="text-success">
-                    <h6 class="my-0">Discount</h6>
-                  </div>
-                  <span class="text-success"
-                    ><span>$</span><span id="val2"></span
-                  ></span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <div class="text-info">
-                    <span>Final Total Cost (USD)</span>
-                  </div>
-                  <strong class="text-info"
-                    ><span>$</span><span id="val3"></span
-                  ></strong>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <hr />
-        <div>
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Billing Address</span>
-          </h4>
-          <form validate>
+            <hr />
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="Name">Name (Individual/Organization)</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="Name"
+                  id="name"
                   placeholder="Name"
                   required
                 />
@@ -190,47 +157,207 @@
               </div>
             </div>
             <hr />
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-              <span class="text-muted">Payment</span>
-            </h4>
-
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input
-                  id="Received"
-                  name="payment"
-                  type="radio"
-                  class="custom-control-input"
-                  required
-                />
-                <label class="custom-control-label" for="Received"
-                  >Received</label
+            <div class="form-group col-md-4">
+              <input
+                type="submit"
+                value="Add product"
+                class="btn btn-primary btn-md"
+              />
+              <input type="reset" value="Reset" class="btn btn-info btn-md" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <br />
+      <div class="card">
+        <div class="card-header">
+          Invoice
+        </div>
+        <div class="card-body">
+          <form>
+            <h2 align="center">
+              X Warehouse
+            </h2>
+            <address align="center">
+              <span>Customer Name:</span><span>Mr. Abc</span><span>,</span>
+              <span>Customer Address:</span><span>Nikunja-2, Khilkhet</span
+              ><span>;</span>
+            </address>
+            <hr />
+            <table class="table table-bordered table-hover table-sm">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Product Name</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">PUP</th>
+                  <th scope="col">Total Price</th>
+                  <th scope="col">Discount</th>
+                  <th scope="col">Net Price</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>P1</td>
+                  <td>2</td>
+                  <td>50</td>
+                  <td>100</td>
+                  <td>5</td>
+                  <td>95</td>
+                  <td>
+                    <a
+                      class="btn btn-sm btn-outline-danger"
+                      href="#"
+                      role="button"
+                      >Remove</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>P2</td>
+                  <td>3</td>
+                  <td>100</td>
+                  <td>300</td>
+                  <td>3</td>
+                  <td>291</td>
+                  <td>
+                    <a
+                      class="btn btn-sm btn-outline-danger"
+                      href="#"
+                      role="button"
+                      >Remove</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div>
+              <div class="form-group row">
+                <label for="deliveryCharge" class="col-sm-2 col-form-label"
+                  >Delivery Charge:</label
                 >
+                <div class="col-sm-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="deliveryCharge"
+                    placeholder="0"
+                    required
+                  />
+                </div>
               </div>
-              <div class="custom-control custom-radio">
-                <input
-                  id="Due"
-                  name="payment"
-                  type="radio"
-                  class="custom-control-input"
-                  required
-                />
-                <label class="custom-control-label" for="Due">Due</label>
+              <div class="form-group row">
+                <label for="totalAmount" class="col-sm-2 col-form-label"
+                  >Total Amount:</label
+                >
+                <div class="col-sm-2">
+                  <input
+                    type="text"
+                    readonly
+                    class="form-control-plaintext"
+                    id="totalAmount"
+                    value="386.00"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="discount" class="col-sm-2 col-form-label"
+                  >Discount:</label
+                >
+                <div class="col-sm-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="discount"
+                    placeholder="0.00"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="tax" class="col-sm-2 col-form-label">Tax:</label>
+                <div class="col-sm-2">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="tax"
+                    placeholder="0 %"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="netAmount" class="col-sm-2 col-form-label"
+                  >Net Amount:</label
+                >
+                <div class="col-sm-2">
+                  <input
+                    type="text"
+                    readonly
+                    class="form-control-plaintext"
+                    id="netAmount"
+                    value="386.00"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="payMethod" class="col-sm-2 col-form-label"
+                  >Pay Method:</label
+                >
+                <div class="form-group col-md-2">
+                  <div class="input-group mb-2">
+                    <select class="custom-select" id="payMethod" required>
+                      <option selected>Choose...</option>
+                      <option value="1">Paid</option>
+                      <option value="2">Partial</option>
+                      <option value="3">Unpaid</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="paidAmount" class="col-sm-2 col-form-label"
+                  >Paid Amount:</label
+                >
+                <div class="col-sm-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="paidAmount"
+                    placeholder="0"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="amountDue" class="col-sm-2 col-form-label"
+                  >Amount Due:</label
+                >
+                <div class="col-sm-2">
+                  <input
+                    type="text"
+                    readonly
+                    class="form-control-plaintext"
+                    id="amountDue"
+                    value="0"
+                  />
+                </div>
               </div>
             </div>
             <hr />
-            <button
-              class="btn btn-primary btn-lg"
+            <input
               type="submit"
+              value="Continue to checkout"
+              class="btn btn-success btn-lg"
               onclick="redirect()"
-            >
-              Continue to checkout
-            </button>
+            />
           </form>
         </div>
       </div>
     </main>
-    <script src="../JS/checkout_form.js"></script>
     <script>
       $(function() {
         $("#header").load("header.html");
