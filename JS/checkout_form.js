@@ -29,18 +29,11 @@ function calculation1() {
 }
 
 function calculation2() {
-  var netAmount = document.getElementById("netAmount").value;
-  var tax = document.getElementById("tax").value;
-  tax = netAmount * (tax / 100);
-  netAmount = parseInt(netAmount) + parseInt(tax);
-  if (!isNaN(netAmount)) {
-    document.getElementById("netAmount").value = netAmount;
-  }
-}
-
-function calculation3() {
-  var netAmount = document.getElementById("netAmount").value;
+  var netAmount = 0;
+  var totalAmount = document.getElementById("totalAmount").value;
+  var deliveryCharge = document.getElementById("deliveryCharge").value;
   var discount = document.getElementById("discount").value;
+  netAmount = parseInt(totalAmount) + parseInt(deliveryCharge);
   netAmount = parseInt(netAmount) - parseInt(discount);
   if (!isNaN(netAmount)) {
     document.getElementById("netAmount").value = netAmount;
@@ -91,7 +84,6 @@ function insertNewRecord(data) {
   cell4.innerHTML = data.price;
   cell5 = newRow.insertCell(4);
   cell5.innerHTML = document.getElementById("totalPrice").innerHTML;
-  cell5.innerHTML = data.quantity * data.price;
   cell6 = newRow.insertCell(5);
   cell6.innerHTML = data.percentage;
   cell7 = newRow.insertCell(6);
@@ -129,7 +121,6 @@ function resetForm() {
     "address"
   ).value;
   document.getElementById("deliveryCharge").value = "";
-  document.getElementById("tax").value = "";
   document.getElementById("discount").value = "";
   document.getElementById("netAmount").value = "";
   document.getElementById("payMethod").value = "Choose...";
