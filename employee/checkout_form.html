@@ -55,26 +55,31 @@
           Generate Invoice
         </div>
         <div class="card-body">
-          <form>
+          <form onsubmit="event.preventDefault();onFormSubmit();">
             <div class="form-row">
               <div class="form-group col-md-3">
                 <div class="input-group mb-3">
-                  <select class="custom-select" id="productName" required>
+                  <select
+                    class="custom-select"
+                    id="productName"
+                    required
+                    autofocus
+                  >
                     <option selected>Choose Product...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="P1">P1</option>
+                    <option value="P2">P2</option>
+                    <option value="P3">P3</option>
                   </select>
                 </div>
               </div>
               <div class="form-group col-md-1">
                 <span class="text-muted"
                   >Available&emsp;<span
-                    class="badge badge-secondary badge-pill"
+                    class="badge badge-danger badge-pill"
                     id="available"
                     >_</span
                   ></span
-                >
+                ><!--Connected with DB-->
               </div>
               <div class="form-group col-md-2">
                 <input
@@ -83,6 +88,7 @@
                   name="quantity"
                   id="quantity"
                   placeholder="Quantity"
+                  onkeyup="totalPrice()"
                   required
                 />
               </div>
@@ -100,14 +106,14 @@
                     placeholder="0.00"
                     name="price"
                     id="price"
-                    readonly
-                  />
+                    onkeyup="totalPrice()"
+                  /><!--Connected with DB & will be always in readonly mode-->
                 </div>
               </div>
               <div class="form-group col-md-1">
                 <span class="text-muted"
                   >Total Price&emsp;<span
-                    class="badge badge-info badge-pill"
+                    class="badge badge-warning badge-pill"
                     id="totalPrice"
                     >_</span
                   ></span
@@ -121,6 +127,7 @@
                   id="percentage"
                   placeholder="Percentage"
                   required
+                  onkeyup="netPrice()"
                 />
               </div>
               <div class="form-group col-md-1">
@@ -158,97 +165,51 @@
             </div>
             <hr />
             <div class="form-group col-md-4">
-              <input
-                type="submit"
-                value="Add product"
-                class="btn btn-primary btn-md"
-              />
+              <button type="submit" class="btn btn-primary btn-md">
+                Add product
+              </button>
               <input type="reset" value="Reset" class="btn btn-info btn-md" />
             </div>
           </form>
         </div>
       </div>
       <br />
-      <div class="card">
+      <div class="card" id="this" style="display:none;">
         <div class="card-header">
           Invoice
         </div>
         <div class="card-body">
+          <h2 align="center">
+            X Warehouse
+          </h2>
+          <address align="center">
+            <span class="text-muted">Customer Name:</span
+            ><span id="cus_name" style="border-bottom: 1px dashed black"></span
+            ><span>,</span> <span class="text-muted">Customer Address:</span
+            ><span id="cus_add" style="border-bottom: 1px dashed black"></span
+            ><span>;</span>
+          </address>
+          <hr />
+          <table
+            class="table table-bordered table-hover table-sm"
+            id="invoiceList"
+          >
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">PUP in $</th>
+                <th scope="col">Total Price</th>
+                <th scope="col">Discount in %</th>
+                <th scope="col">Net Price</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="here"></tbody>
+          </table>
           <form>
-            <h2 align="center">
-              X Warehouse
-            </h2>
-            <address align="center">
-              <span>Customer Name:</span><span>Mr. Abc</span><span>,</span>
-              <span>Customer Address:</span><span>Nikunja-2, Khilkhet</span
-              ><span>;</span>
-            </address>
-            <hr />
-            <table class="table table-bordered table-hover table-sm">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Product Name</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">PUP</th>
-                  <th scope="col">Total Price</th>
-                  <th scope="col">Discount</th>
-                  <th scope="col">Net Price</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>P1</td>
-                  <td>2</td>
-                  <td>50</td>
-                  <td>100</td>
-                  <td>5</td>
-                  <td>95</td>
-                  <td>
-                    <a
-                      class="btn btn-sm btn-outline-danger"
-                      href="#"
-                      role="button"
-                      >Remove</a
-                    >
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>P2</td>
-                  <td>3</td>
-                  <td>100</td>
-                  <td>300</td>
-                  <td>3</td>
-                  <td>291</td>
-                  <td>
-                    <a
-                      class="btn btn-sm btn-outline-danger"
-                      href="#"
-                      role="button"
-                      >Remove</a
-                    >
-                  </td>
-                </tr>
-              </tbody>
-            </table>
             <div>
-              <div class="form-group row">
-                <label for="deliveryCharge" class="col-sm-2 col-form-label"
-                  >Delivery Charge:</label
-                >
-                <div class="col-sm-2">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="deliveryCharge"
-                    placeholder="0"
-                    required
-                  />
-                </div>
-              </div>
               <div class="form-group row">
                 <label for="totalAmount" class="col-sm-2 col-form-label"
                   >Total Amount:</label
@@ -259,7 +220,34 @@
                     readonly
                     class="form-control-plaintext"
                     id="totalAmount"
-                    value="386.00"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="deliveryCharge" class="col-sm-2 col-form-label"
+                  >Delivery Charge:</label
+                >
+                <div class="col-sm-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="deliveryCharge"
+                    placeholder="0"
+                    onkeyup="calculation1()"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="tax" class="col-sm-2 col-form-label">Tax:</label>
+                <div class="col-sm-2">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="tax"
+                    placeholder="0 %"
+                    onkeyup="calculation2()"
+                    required
                   />
                 </div>
               </div>
@@ -274,18 +262,7 @@
                     id="discount"
                     placeholder="0.00"
                     required
-                  />
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="tax" class="col-sm-2 col-form-label">Tax:</label>
-                <div class="col-sm-2">
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="tax"
-                    placeholder="0 %"
-                    required
+                    onkeyup="calculation3()"
                   />
                 </div>
               </div>
@@ -299,7 +276,7 @@
                     readonly
                     class="form-control-plaintext"
                     id="netAmount"
-                    value="386.00"
+                    value=""
                   />
                 </div>
               </div>
@@ -329,6 +306,7 @@
                     id="paidAmount"
                     placeholder="0"
                     required
+                    onkeyup="finalCalculation()"
                   />
                 </div>
               </div>
@@ -342,7 +320,7 @@
                     readonly
                     class="form-control-plaintext"
                     id="amountDue"
-                    value="0"
+                    value=""
                   />
                 </div>
               </div>
@@ -367,5 +345,6 @@
         window.location.href = "checkout_list.html";
       }
     </script>
+    <script src="../JS/checkout_form.js"></script>
   </body>
 </html>

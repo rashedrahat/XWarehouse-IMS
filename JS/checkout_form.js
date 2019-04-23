@@ -19,6 +19,43 @@ function netPrice() {
   }
 }
 
+function calculation1() {
+  var totalAmount = document.getElementById("totalAmount").value;
+  var deliveryCharge = document.getElementById("deliveryCharge").value;
+  var netAmount = parseInt(totalAmount) + parseInt(deliveryCharge);
+  if (!isNaN(netAmount)) {
+    document.getElementById("netAmount").value = netAmount;
+  }
+}
+
+function calculation2() {
+  var netAmount = document.getElementById("netAmount").value;
+  var tax = document.getElementById("tax").value;
+  tax = netAmount * (tax / 100);
+  netAmount = parseInt(netAmount) + parseInt(tax);
+  if (!isNaN(netAmount)) {
+    document.getElementById("netAmount").value = netAmount;
+  }
+}
+
+function calculation3() {
+  var netAmount = document.getElementById("netAmount").value;
+  var discount = document.getElementById("discount").value;
+  netAmount = parseInt(netAmount) - parseInt(discount);
+  if (!isNaN(netAmount)) {
+    document.getElementById("netAmount").value = netAmount;
+  }
+}
+
+function finalCalculation() {
+  var netAmount = document.getElementById("netAmount").value;
+  var paidAmount = document.getElementById("paidAmount").value;
+  var dueAmount = parseInt(netAmount) - parseInt(paidAmount);
+  if (!isNaN(dueAmount)) {
+    document.getElementById("amountDue").value = dueAmount;
+  }
+}
+
 function onFormSubmit() {
   var formData = readFormData();
   if (row == null) insertNewRecord(formData);
@@ -76,12 +113,6 @@ function insertNewRecord(data) {
     }
 
     document.getElementById("totalAmount").value = totalAmount;
-
-    //discount = totalCost * 0.02;
-    //finalTotalCost = totalCost - discount;
-
-    //document.getElementById("val2").innerHTML = discount;
-    //document.getElementById("val3").innerHTML = finalTotalCost;
   }
 }
 
@@ -97,6 +128,13 @@ function resetForm() {
   document.getElementById("address").value = document.getElementById(
     "address"
   ).value;
+  document.getElementById("deliveryCharge").value = "";
+  document.getElementById("tax").value = "";
+  document.getElementById("discount").value = "";
+  document.getElementById("netAmount").value = "";
+  document.getElementById("payMethod").value = "Choose...";
+  document.getElementById("paidAmount").value = "";
+  document.getElementById("amountDue").value = "";
   row = null;
 }
 
@@ -106,8 +144,6 @@ function onDelete(td) {
     document.getElementById("invoiceList").deleteRow(row.rowIndex);
     resetForm();
     var table = document.getElementById("here");
-    //document.getElementById("numOfP").innerHTML = table.rows.length;
-
     if (table.rows.length == 0) {
       document.getElementById("this").style.display = "none";
     }
@@ -115,20 +151,11 @@ function onDelete(td) {
       calcu();
       function calcu() {
         var totalAmount = 0;
-        //var discount;
-        //var finalTotalCost;
-
         for (var i = 0; i < table.rows.length; i++) {
           totalAmount =
             totalAmount + parseFloat(table.rows[i].cells[6].innerHTML);
         }
         document.getElementById("totalAmount").value = totalAmount;
-
-        //discount = totalCost * 0.02;
-        //finalTotalCost = totalCost - discount;
-
-        //document.getElementById("val2").innerHTML = discount;
-        //document.getElementById("val3").innerHTML = finalTotalCost;
       }
     }
   }
