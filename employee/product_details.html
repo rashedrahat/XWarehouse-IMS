@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Product Details</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <link href="../CSS/dashboard.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="header"></div>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div><h1 class="h2">Detailed of Product</h1>
+            <hr />
+              <div class="container">
+                  <!-- The Modal -->
+                  <div class="modal fade" id="myModal">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                      <div class="modal-content">
+                      
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">Edit the Product</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-row">
+                                  <div class="form-group col-md-4">
+                                    <input type="text" class="form-control" name= "productName" id="productName" placeholder="Product Name" required>
+                                  </div>
+                                  <div class="form-group col-md-2">
+                                    <input type="number" class="form-control" name="Quantity" id="Quantity" placeholder="Quantity" required>
+                                  </div>
+                                  <div class="form-group col-md-5">
+                                    <div class="input-group mb-3">
+                                      <div class="input-group-prepend">
+                                        <label class="input-group-text" for="Cat">Category</label>
+                                      </div>
+                                      <select class="custom-select" name="Category" id="Category" required>
+                                        <option selected>Choose...</option>
+                                        <option value="Food">Food</option>
+                                        <option value="Electronics">Electronics</option>
+                                        <option value="Clothes">Clothes</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                              </div>
+                              <div class="form-row">
+                                      <div class="form-group col-md-4">
+                                              <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text">$</span>
+                                                  <span class="input-group-text">Buying PUP</span>
+                                                </div>
+                                                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" name="buyPrice" id="buyPrice" required placeholder="0.00">
+                                              </div>
+                                      </div>
+                                      <div class="form-group col-md-4">
+                                                  <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                      <span class="input-group-text">$</span>
+                                                      <span class="input-group-text">Selling PUP</span>
+                                                    </div>
+                                                    <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" name="sellPrice" id="sellPrice" required placeholder="0.00">
+                                                  </div>
+                                      </div>
+                                      <div class="form-group col-md-4">
+                                              <input type="file" class="form-control-file" id="img" required>
+                                            </div>
+                                  </div>
+                                  <div class="form-row">
+                                          <div class="form-group col-md-11">
+                                                  <textarea class="form-control" id="details" placeholder="Write more details about product." rows="3"></textarea>
+                                                </div>
+                                      </div><hr/>
+                                      
+                                  <input type="submit" value="Save changes" class="btn btn-success">
+                                </div>
+                              </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                      <div class="col p-4 d-flex flex-column position-static">
+                        <h2><strong class="d-inline-block mb-2 text-info">Product Name</strong></h2>
+                        <div class="mb-1 text-muted"><strong class="d-inline-block mb-2 text-secondary">Category: Food</strong></div>
+                        <div class="mb-1 text-muted"><strong class="d-inline-block mb-2 text-primary">Buying Price: $499.00</strong></div>
+                        <div class="mb-1 text-muted"><strong class="d-inline-block mb-2 text-danger">Selling Price: $599.00</strong></div>
+                        <div class="mb-1 text-muted"><strong class="d-inline-block mb-2 text-warning">Availability: In Stock</strong></div>
+                        <div class="mb-1 text-muted"><strong class="d-inline-block mb-2 text-dark">Quantity: 321</strong></div>
+                        <p class="mb-auto">This is a wider details with supporting text. This is another wider details with supporting text.</p>
+                        <div><button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#myModal">
+                            Edit
+                          </button>
+                          <a class="btn btn-sm btn-outline-danger" role="button">Remove</a></div>
+                        <!--<button type="button" class="btn btn-sm btn-outline-success mb-auto" data-toggle="modal" data-target="#myModal">
+                            Edit
+                          </button>
+                          <a class="btn btn-sm btn-outline-danger mb-auto" role="button">Remove</a>-->
+                      </div>
+                      <div class="col-auto d-none d-lg-block">
+                        <img src="../img/dummy-product.png" alt="Product Image" class="img-thumbnail">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </main>
+      </div>
+    </div>
+    <script> 
+        $(function(){
+          $("#header").load("header.html"); 
+        });
+    </script>
+  </body>
+</html>

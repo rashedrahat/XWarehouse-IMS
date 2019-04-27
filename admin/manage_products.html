@@ -50,78 +50,6 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div><h1 class="h2">Detailed List of Products</h1>
             <hr />
-              <div class="container">
-                  <!-- The Modal -->
-                  <div class="modal fade" id="myModal">
-                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                      <div class="modal-content">
-                      
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                          <h4 class="modal-title">Edit the Product</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-row">
-                                  <div class="form-group col-md-4">
-                                    <input type="text" class="form-control" name= "productName" id="productName" placeholder="Product Name" required>
-                                  </div>
-                                  <div class="form-group col-md-2">
-                                    <input type="number" class="form-control" name="Quantity" id="Quantity" placeholder="Quantity" required>
-                                  </div>
-                                  <div class="form-group col-md-5">
-                                    <div class="input-group mb-3">
-                                      <div class="input-group-prepend">
-                                        <label class="input-group-text" for="Cat">Category</label>
-                                      </div>
-                                      <select class="custom-select" name="Category" id="Category" required>
-                                        <option selected>Choose...</option>
-                                        <option value="Food">Food</option>
-                                        <option value="Electronics">Electronics</option>
-                                        <option value="Clothes">Clothes</option>
-                                      </select>
-                                    </div>
-                                  </div>
-                              </div>
-                              <div class="form-row">
-                                      <div class="form-group col-md-4">
-                                              <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                  <span class="input-group-text">$</span>
-                                                  <span class="input-group-text">Buying PUP</span>
-                                                </div>
-                                                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" name="buyPrice" id="buyPrice" required placeholder="0.00">
-                                              </div>
-                                      </div>
-                                      <div class="form-group col-md-4">
-                                                  <div class="input-group mb-3">
-                                                    <div class="input-group-prepend">
-                                                      <span class="input-group-text">$</span>
-                                                      <span class="input-group-text">Selling PUP</span>
-                                                    </div>
-                                                    <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" name="sellPrice" id="sellPrice" required placeholder="0.00">
-                                                  </div>
-                                      </div>
-                                      <div class="form-group col-md-4">
-                                              <input type="file" class="form-control-file" id="img" required>
-                                            </div>
-                                  </div>
-                                  <div class="form-row">
-                                          <div class="form-group col-md-11">
-                                                  <textarea class="form-control" id="details" placeholder="Write more details about product." rows="3"></textarea>
-                                                </div>
-                                      </div><hr/>
-                                      
-                                  <input type="submit" value="Save changes" class="btn btn-success">
-                                </div>
-                              </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
                                   <form class="form-inline">
                                     <input class="form-control mr-sm-2" type="text" placeholder="Search Products">
@@ -133,11 +61,6 @@
                                       <tr>
                                         <th>Product Name</th>
                                         <th>Quantity</th>
-                                        <th>Category</th>
-                                        <th>Buying PUP</th>
-                                        <th>Selling PUP</th>
-                                        <th>Image</th>
-                                        <th>Details</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                       </tr>
@@ -146,37 +69,21 @@
                                       <tr>
                                             <td>Mobile</td>
                                             <td>25</td>
-                                            <td>Electronics</td>
-                                            <td>1000</td>
-                                            <td>1111</td>
-                                            <td><img src="#" alt="img"></td>
-                                            <td>iPhone X</td>
                                             <td>
                                               <span class="badge badge-pill badge-success">In Stock</span>
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#myModal">
-                                                    Edit
-                                                  </button>
-                                                  <a class="btn btn-sm btn-outline-danger" role="button">Remove</a>
+                                                  <a class="btn btn-sm btn-outline-info" role="button" href="product_details.html">View Details</a>
                                             </td>
                                       </tr>
                                       <tr>
                                             <td>Banana</td>
                                             <td>0</td>
-                                            <td>Food</td>
-                                            <td>10</td>
-                                            <td>11</td>
-                                            <td><img src="#" alt="img"></td>
-                                            <td>N/A</td>
                                             <td>
                                               <span class="badge badge-pill badge-danger">Not In Stock</span>
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#myModal">
-                                                    Edit
-                                                  </button>
-                                                  <a class="btn btn-sm btn-outline-danger" role="button">Remove</a>
+                                                  <a class="btn btn-sm btn-outline-info" role="button" href="product_details.html">View Details</a>
                                             </td>
                                       </tr>
                                     </tbody>
