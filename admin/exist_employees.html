@@ -46,8 +46,8 @@
     <link href="../CSS/dashboard.css" rel="stylesheet" />
   </head>
   <body>
+    <div class="container">
     <div id="header"></div>
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
             <h1 class="h2">List of Employees</h1>
             <hr />
             <div class="container">
@@ -110,8 +110,8 @@
                 </div>
                 </div>
           <div class="container">
-            <div>
-              <table class="table table-dark table-striped table-hover">
+              <div class="table-responsive-sm">
+              <table class="table table-bordered table-hover table-sm">
                 <thead class="thead-light">
                   <tr>
                     <th>Username</th>
@@ -189,7 +189,7 @@
               </table>
             </div>
           </div>
-        </main>
+        </div>
     <script>
       $(function() {
         $("#header").load("header.html");

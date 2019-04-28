@@ -46,8 +46,8 @@
     <link href="../CSS/dashboard.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="header"></div>
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="container">
+      <div id="header"></div>
       <h1 class="h2">Checkout Form</h1>
       <hr />
       <div class="card">
@@ -190,24 +190,26 @@
             ><span>;</span>
           </address>
           <hr />
-          <table
-            class="table table-bordered table-hover table-sm"
-            id="invoiceList"
-          >
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">PUP in $</th>
-                <th scope="col">Total Price</th>
-                <th scope="col">Discount in %</th>
-                <th scope="col">Net Price</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody id="here"></tbody>
-          </table>
+          <div class="table-responsive-sm">
+              <table
+              class="table table-bordered table-hover table-sm"
+              id="invoiceList"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Product Name</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">PUP in $</th>
+                  <th scope="col">Total Price</th>
+                  <th scope="col">Discount in %</th>
+                  <th scope="col">Net Price</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody id="here"></tbody>
+            </table>
+          </div>
           <form>
             <div>
               <div class="form-group row">
@@ -322,7 +324,7 @@
           </form>
         </div>
       </div>
-    </main>
+    </div>
     <script>
       $(function() {
         $("#header").load("header.html");

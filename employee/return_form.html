@@ -46,8 +46,8 @@
     <link href="../CSS/dashboard.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="header"></div>
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="container">
+      <div id="header"></div>
       <h1 class="h2">Return Form</h1>
       <hr />
       <div class="container">
@@ -81,7 +81,12 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Damage</span>
                   </div>
-                  <input type="number" id="damage" class="form-control" required />
+                  <input
+                    type="number"
+                    id="damage"
+                    class="form-control"
+                    required
+                  />
                 </div>
               </div>
             </div>
@@ -123,7 +128,7 @@
           </form>
         </div>
       </div>
-    </main>
+    </div>
     <script>
       $(function() {
         $("#header").load("header.html");

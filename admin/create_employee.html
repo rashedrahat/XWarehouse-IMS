@@ -45,59 +45,57 @@
     </style>
     <link href="../CSS/dashboard.css" rel="stylesheet" />
   </head>
-  <body style="padding-top: 100px;">
-    <div id="header"></div>
-    <h2 align="center">
-      <a href="dashboard.html" style="text-decoration:none; color: black;"
-        >X Warehouse</a
-      >
-    </h2>
-    <br />
-    <div class="container" style="width: 300px; height: auto;">
-      <h5 align="center">
-        <span class="text-muted">Create an employee</span>
-      </h5>
-      <form>
-        <div class="form-group">
-          <label for="userName">Username:</label>
-          <input
-            type="text"
-            class="form-control"
-            id="userName"
-            placeholder="Choose an username"
-            name="userName"
-            required
-            autofocus="autofocus"
-          />
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="Enter email"
-            name="email"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            placeholder="Enter password"
-            name="password"
-            required
-          />
-        </div>
-        <button type="submit" class="btn btn-success" onclick="redirect()">
-          Create
-        </button>
-      </form>
+  <body>
+    <div class="container">
+      <div id="header"></div>
+      <h2 align="center">
+        <a href="#" style="text-decoration:none; color: black;">X Warehouse</a>
+      </h2>
+      <div class="container" style="width: 300px; height: auto;">
+        <h5 align="center">
+          <span class="text-muted">Create an employee</span>
+        </h5>
+        <form>
+          <div class="form-group">
+            <label for="userName">Username:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userName"
+              placeholder="Choose an username"
+              name="userName"
+              required
+              autofocus="autofocus"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Enter email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Enter password"
+              name="password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-success" onclick="redirect()">
+            Create
+          </button>
+        </form>
+      </div>
     </div>
-
     <script>
       $(function() {
         $("#header").load("header.html");
