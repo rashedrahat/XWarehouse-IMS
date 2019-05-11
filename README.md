@@ -1,2 +1,2 @@
 # IMS
-Inventory Management System for XWarehouse Company.
+Inventory Management System for XWarehouse company.
